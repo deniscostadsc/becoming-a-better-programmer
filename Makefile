@@ -3,6 +3,7 @@ PHONY: \
 	clean \
 	format-code \
 	lint \
+	update-and-lock-requirements \
 	test
 
 __build_test_image:
@@ -47,6 +48,13 @@ lint: __build_test_image
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
 		data-structure-test \
 		mypy src
+
+update-and-lock-requirements: __build_test_image
+	docker run \
+		-v $(shell pwd):/code \
+		-u $$(stat -c "%u:%g" $(shell pwd)) \
+		data-structure-test \
+		lock requirements.txt
 
 test: __build_test_image
 	docker run \
