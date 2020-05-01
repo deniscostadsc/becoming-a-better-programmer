@@ -22,7 +22,10 @@ class MinHeap:
         return int(index - 1 / 2)
 
     def __swap(self, first_index: int, second_index: int) -> None:
-        self.__heap[first_index], self.__heap[second_index] = self.__heap[second_index], self.__heap[first_index]
+        self.__heap[first_index], self.__heap[second_index] = (
+            self.__heap[second_index],
+            self.__heap[first_index],
+        )
 
     def __heapfy_up(self) -> None:
         value = self.__heap[-1]

@@ -41,6 +41,7 @@ def test_heap_pop(heap):
     assert heap.pop() == 3
     assert len(heap) == 0
 
+
 def test_pop_item_and_check_heap_reorganization(heap):
     heap.push(10)
     heap.push(20)
