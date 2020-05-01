@@ -3,6 +3,13 @@ import pytest
 from datastructures import EmptyHeap, MinHeap
 
 
+@pytest.helpers.register
+def equal_items(expected, actual):
+    return len(expected) == len(actual) and all(
+        map(lambda x: x[0] == x[1], zip(actual, expected))
+    )
+
+
 @pytest.fixture
 def heap():
     return MinHeap()
@@ -23,13 +30,13 @@ def test_push_item_that_should_be_replaced(heap):
     heap.push(4)
     heap.push(1)
     assert heap.peek() == 1
-    assert heap._MinHeap__heap == [1, 2, 4, 3]
+    assert pytest.helpers.equal_items([1, 2, 4, 3], heap)
 
 
 def test_heap_peek(heap):
     heap.push(1)
     assert heap.peek() == 1
-    assert heap._MinHeap__heap == [1]
+    assert pytest.helpers.equal_items([1], heap)
 
 
 def test_peek_empty_heap(heap):
@@ -40,11 +47,11 @@ def test_peek_empty_heap(heap):
 
 def test_heap_pop(heap):
     heap.push(3)
-    assert heap._MinHeap__heap == [3]
+    assert pytest.helpers.equal_items([3], heap)
     assert len(heap) == 1
     assert heap.pop() == 3
     assert len(heap) == 0
-    assert heap._MinHeap__heap == []
+    assert pytest.helpers.equal_items([], heap)
 
 
 def test_pop_empty_heap(heap):
@@ -58,11 +65,11 @@ def test_pop_item_and_check_heap_reorganization(heap):
     heap.push(20)
     heap.push(15)
     heap.push(17)
-    assert heap._MinHeap__heap == [10, 17, 15, 20]
+    assert pytest.helpers.equal_items([10, 17, 15, 20], heap)
     assert heap.pop() == 10
     assert len(heap) == 3
     assert heap.peek() == 15
-    assert heap._MinHeap__heap == [15, 17, 20]
+    assert pytest.helpers.equal_items([15, 17, 20], heap)
 
 
 def test_pop_item_and_reorganize_and_should_stop_in_the_middle(heap):
@@ -71,8 +78,8 @@ def test_pop_item_and_reorganize_and_should_stop_in_the_middle(heap):
     heap.push(20)
     heap.push(17)
     heap.push(16)
-    assert heap._MinHeap__heap == [10, 15, 20, 17, 16]
+    assert pytest.helpers.equal_items([10, 15, 20, 17, 16], heap)
     assert heap.pop() == 10
     assert len(heap) == 4
     assert heap.peek() == 15
-    assert heap._MinHeap__heap == [15, 16, 20, 17]
+    assert pytest.helpers.equal_items([15, 16, 20, 17], heap)

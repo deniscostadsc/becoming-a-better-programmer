@@ -4,3 +4,4 @@ isort
 mypy
 pytest
 pytest-cov
+pytest-helpers-namespace

@@ -12,6 +12,9 @@ class MinHeap:
     def __len__(self) -> int:
         return len(self.__heap)
 
+    def __getitem__(self, index: int) -> int:
+        return self.__heap[index]
+
     def __has_parent(self, index: int) -> bool:
         return self.__parent_index(index) >= 0
 
