@@ -2,4 +2,4 @@
 
 export PYTHONPATH=./src
 
-pytest
+pytest --cov-report term-missing --cov=src

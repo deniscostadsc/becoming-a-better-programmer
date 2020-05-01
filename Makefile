@@ -10,6 +10,8 @@ __build_test_image:
 
 clean:
 	rm -rf .pytest_cache
+	rm -rf .mypy_cache
+	rm -rf src/datastructures/__pycache__
 	rm -rf tests/datastructures/__pycache__
 
 format-code: __build_test_image
@@ -40,6 +42,11 @@ lint: __build_test_image
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
 		data-structure-test \
 		flake8
+	docker run \
+		-v $(shell pwd):/code \
+		-u $$(stat -c "%u:%g" $(shell pwd)) \
+		data-structure-test \
+		mypy src
 
 test: __build_test_image
 	docker run \
