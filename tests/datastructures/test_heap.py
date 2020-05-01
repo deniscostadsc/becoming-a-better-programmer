@@ -33,6 +33,7 @@ def test_heap_peek(heap):
 def test_peek_empty_heap(heap):
     with pytest.raises(EmptyHeap) as e:
         heap.peek()
+        assert e.message == "bla"
 
 
 def test_heap_pop(heap):
