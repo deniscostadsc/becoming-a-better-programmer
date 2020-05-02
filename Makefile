@@ -14,6 +14,7 @@ clean:
 	rm -rf .mypy_cache
 	rm -rf src/datastructures/__pycache__
 	rm -rf tests/datastructures/__pycache__
+	find . -name '*.pyc' -delete
 
 format-code: __build_test_image
 	docker run \
