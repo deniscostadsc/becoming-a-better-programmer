@@ -50,11 +50,13 @@ lint: __build_test_image
 		mypy src
 
 update-and-lock-requirements: __build_test_image
+	rm requirements-lock.txt
+	cp requirements.txt requirements-lock.txt
 	docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
 		data-structure-test \
-		lock requirements.txt
+		lock requirements-lock.txt
 
 test: __build_test_image
 	docker run \
