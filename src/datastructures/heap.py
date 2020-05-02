@@ -48,6 +48,12 @@ class Heap:
             self._heap[first_index],
         )
 
+    def _heapfy_up(self) -> None:
+        raise NotImplementedError
+
+    def _heapfy_down(self) -> None:
+        raise NotImplementedError
+
     def push(self, value: int) -> None:
         self._heap.append(value)
         self._heapfy_up()
