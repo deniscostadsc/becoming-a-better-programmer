@@ -5,7 +5,7 @@ class EmptyHeap(Exception):
     pass
 
 
-class Heap():
+class Heap:
     def __init__(self) -> None:
         self._heap: List[int] = []
 
@@ -106,4 +106,37 @@ class MinHeap(Heap):
             value = self._heap[index]
 
 
-__all__ = ["EmptyHeap", "MinHeap"]
+class MaxHeap(Heap):
+    def _heapfy_up(self) -> None:
+        index = len(self) - 1
+        value = self._heap[index]
+
+        while self._has_parent(index) and self._parent(index) < value:
+            self._swap(index, self._parent_index(index))
+            index = self._parent_index(index)
+            value = self._heap[index]
+
+    def _max_child_index(self, index: int) -> int:
+        max_child_index = self._left_child_index(index)
+        if self._has_right_child(index):
+            if self._right_child(index) > self._left_child(index):
+                max_child_index = self._right_child_index(index)
+        return max_child_index
+
+    def _heapfy_down(self) -> None:
+        index = 0
+        value = self._heap[index]
+
+        while self._has_left_child(index):
+            max_child_index = self._max_child_index(index)
+
+            if value > self._heap[max_child_index]:
+                break
+            else:
+                self._swap(index, max_child_index)
+
+            index = max_child_index
+            value = self._heap[index]
+
+
+__all__ = ["EmptyHeap", "MinHeap", "MaxHeap"]

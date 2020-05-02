@@ -1,3 +1,3 @@
-from .heap import EmptyHeap, MinHeap
+from .heap import EmptyHeap, MaxHeap, MinHeap
 
-__all__ = ["EmptyHeap", "MinHeap"]
+__all__ = ["EmptyHeap", "MinHeap", "MaxHeap"]
