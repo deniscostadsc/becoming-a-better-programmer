@@ -12,8 +12,7 @@ __build_test_image:
 clean:
 	rm -rf .pytest_cache
 	rm -rf .mypy_cache
-	rm -rf src/datastructures/__pycache__
-	rm -rf tests/datastructures/__pycache__
+	find . -name '__pycache__' -exec rm -rf {} +
 	find . -name '*.pyc' -delete
 
 format-code: __build_test_image
