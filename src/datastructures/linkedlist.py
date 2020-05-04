@@ -1,6 +1,9 @@
+from typing import Optional
+
+
 class Node:
     def __init__(self) -> None:
-        self.value = None
+        self.value: Optional[int] = None
         self.next = None
 
 
@@ -13,17 +16,18 @@ class LinkedList:
         return self._len
 
     def append(self, value: int) -> None:
+        node = Node()
+        node.value = value
+
         if not self._head:
-            self._head = Node()
-            self._head.value = value
+            self._head = node
             self._len += 1
             return
 
         current = self._head
         while current.next:
             current = current.next
-        current.next = Node()
-        current.next.value = value
+        current.next = node
         self._len += 1
 
 
