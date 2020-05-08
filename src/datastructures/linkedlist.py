@@ -62,5 +62,34 @@ class LinkedList:
         self._tail = node
         self._len += 1
 
+    def insert(self, index: int, value: int) -> None:
+        """
+        O(n)
+        """
+        node = Node()
+        node.value = value
+
+        previous = None
+        current = self._head
+        position = 0
+
+        if index == 0:
+            node.next = self._head
+            self._head = node
+            self._len += 1
+            return
+
+        while current:
+            if position == index:
+                node.next = current
+                previous.next = node
+                self._len += 1
+                return
+
+            previous = current
+            current = current.next
+            position += 1
+        raise IndexError("linked-list index out of range")
+
 
 __all__ = ["LinkedList"]
