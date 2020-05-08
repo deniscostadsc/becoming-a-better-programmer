@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Iterator, Optional
 
 
 class Node:
@@ -17,6 +17,25 @@ class LinkedList:
         O(1)
         """
         return self._len
+
+    def __iter__(self) -> Iterator[int]:
+        """
+        O(n)
+        """
+        current = self._head
+        while current:
+            yield current.value
+            current = current.next
+
+    def prepend(self, value: int) -> None:
+        """
+        O(1)
+        """
+        node = Node()
+        node.value = value
+        node.next = self._head
+        self._head = node
+        self._len += 1
 
     def append(self, value: int) -> None:
         """
