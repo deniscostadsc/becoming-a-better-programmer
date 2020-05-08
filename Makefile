@@ -3,8 +3,8 @@ PHONY: \
 	clean \
 	format-code \
 	lint \
-	update-and-lock-requirements \
-	test
+	test \
+	update-and-lock-requirements
 
 __build_test_image:
 	docker build -f .docker/test.Dockerfile -t data-structure-test .
@@ -49,6 +49,13 @@ lint: __build_test_image
 		data-structure-test \
 		mypy src
 
+test: __build_test_image
+	docker run \
+		-v $(shell pwd):/code \
+		-u $$(stat -c "%u:%g" $(shell pwd)) \
+		data-structure-test \
+		./run_tests.sh
+
 update-and-lock-requirements: __build_test_image
 	rm requirements-lock.txt
 	cp requirements.txt requirements-lock.txt
@@ -57,10 +64,3 @@ update-and-lock-requirements: __build_test_image
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
 		data-structure-test \
 		lock requirements-lock.txt
-
-test: __build_test_image
-	docker run \
-		-v $(shell pwd):/code \
-		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
-		./run_tests.sh
