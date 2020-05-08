@@ -66,6 +66,7 @@ class Heap:
         """
         O(1)
         """
+
     def _right_child_index(self, parent_index: int) -> int:
         """
         O(1)
