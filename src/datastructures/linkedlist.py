@@ -16,6 +16,8 @@ class LinkedList:
     def __len__(self) -> int:
         """
         O(1)
+
+        This usually takes O(n), but I'm caching the linked-list size.
         """
         return self._len
 
@@ -43,6 +45,9 @@ class LinkedList:
     def append(self, value: int) -> None:
         """
         O(1)
+
+        This usually take O(n), but I'm caching a reference to the linked list
+        tail.
         """
         node = Node()
         node.value = value

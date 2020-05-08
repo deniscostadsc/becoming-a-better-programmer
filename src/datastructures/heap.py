@@ -92,7 +92,7 @@ class Heap:
         """
         O(log n)
 
-        this complexity is because of self._heapfy_up()
+        This complexity is because of self._heapfy_up().
         """
         self._heap.append(value)
         self._heapfy_up()
@@ -110,7 +110,7 @@ class Heap:
         """
         O(log n)
 
-        this complexity is because of self._heapfy_down()
+        This complexity is because of self._heapfy_down().
         """
         if not len(self):
             raise EmptyHeap("you cannot pop on empty heap")
