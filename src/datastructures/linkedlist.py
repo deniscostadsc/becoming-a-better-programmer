@@ -24,6 +24,7 @@ class LinkedList:
         O(n)
         """
         current = self._head
+
         while current:
             yield current.value
             current = current.next
@@ -35,6 +36,7 @@ class LinkedList:
         node = Node()
         node.value = value
         node.next = self._head
+
         self._head = node
         self._len += 1
 
