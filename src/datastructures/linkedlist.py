@@ -13,9 +13,15 @@ class LinkedList:
         self._head = None
 
     def __len__(self) -> int:
+        """
+        O(1)
+        """
         return self._len
 
     def append(self, value: int) -> None:
+        """
+        O(n)
+        """
         node = Node()
         node.value = value
 
