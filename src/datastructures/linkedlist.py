@@ -11,6 +11,7 @@ class LinkedList:
     def __init__(self):
         self._len = 0
         self._head = None
+        self._tail = None
 
     def __len__(self) -> int:
         """
@@ -39,20 +40,19 @@ class LinkedList:
 
     def append(self, value: int) -> None:
         """
-        O(n)
+        O(1)
         """
         node = Node()
         node.value = value
 
         if not self._head:
             self._head = node
+            self._tail = node
             self._len += 1
             return
 
-        current = self._head
-        while current.next:
-            current = current.next
-        current.next = node
+        self._tail.next = node
+        self._tail = node
         self._len += 1
 
 
