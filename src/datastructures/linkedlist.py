@@ -69,7 +69,7 @@ class LinkedList:
         node = Node()
         node.value = value
 
-        previous = None
+        previous = self._head
         current = self._head
         position = 0
 
