@@ -1,5 +1,9 @@
 from typing import Iterator, Optional
 
+# TODO:
+# add SortedLikedList
+# add DoublyLinkedList
+
 
 class Node:
     def __init__(self) -> None:
@@ -8,6 +12,8 @@ class Node:
 
 
 class LinkedList:
+    # TODO:
+    # add reverse
     def __init__(self):
         self._len = 0
         self._head = None
