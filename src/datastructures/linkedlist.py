@@ -95,6 +95,7 @@ class LinkedList:
             previous = current
             current = current.next
             position += 1
+
         raise IndexError("linked-list index out of range")
 
 
