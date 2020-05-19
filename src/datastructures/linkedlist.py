@@ -21,15 +21,18 @@ class LinkedList:
 
     def __len__(self) -> int:
         """
-        O(1)
+        Time: O(1)
+        Space: O(1)
 
-        This usually takes O(n), but I'm caching the linked-list size.
+        This usually takes O(n) for time complexity, but I'm caching the
+        linked-list size.
         """
         return self._len
 
     def __iter__(self) -> Iterator[int]:
         """
-        O(n)
+        Time: O(n)
+        Space: O(1)
         """
         current = self._head
 
@@ -39,7 +42,8 @@ class LinkedList:
 
     def prepend(self, value: int) -> None:
         """
-        O(1)
+        Time: O(1)
+        Space: O(1)
         """
         node = Node()
         node.value = value
@@ -50,10 +54,11 @@ class LinkedList:
 
     def append(self, value: int) -> None:
         """
-        O(1)
+        Time: O(1)
+        Space: O(1)
 
-        This usually take O(n), but I'm caching a reference to the linked list
-        tail.
+        This usually takes O(n) for time complexity, but I'm caching a
+        reference to the linked list tail.
         """
         node = Node()
         node.value = value
@@ -70,7 +75,8 @@ class LinkedList:
 
     def insert(self, index: int, value: int) -> None:
         """
-        O(n)
+        Time: O(n)
+        Space: O(1)
         """
         node = Node()
         node.value = value
