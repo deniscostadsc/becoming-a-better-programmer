@@ -63,7 +63,7 @@ class Heap:
         """
         O(1)
         """
-        return int((index - 1) / 2)
+        return (index - 1) // 2
 
     def _left_child_index(self, parent_index: int) -> int:
         return parent_index * 2 + 1
