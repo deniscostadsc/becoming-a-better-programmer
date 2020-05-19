@@ -10,6 +10,11 @@ class Heap:
         self._heap: List[int] = []
 
     def __len__(self) -> int:
+        """
+        O(1)
+
+        https://docs.python.org/3/faq/design.html#how-are-lists-implemented-in-cpython
+        """
         return len(self._heap)
 
     def __getitem__(self, index: int) -> int:
