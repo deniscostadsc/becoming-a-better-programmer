@@ -12,8 +12,6 @@ class Node:
 
 
 class LinkedList:
-    # TODO:
-    # add reverse
     def __init__(self):
         self._len = 0
         self._head = None
@@ -103,6 +101,44 @@ class LinkedList:
             position += 1
 
         raise IndexError("linked-list index out of range")
+
+    def reverse(self) -> None:
+        """
+        Time: O(n)
+        Space: O(1)
+        """
+        previous = None
+        current = self._head
+        next_node = None
+
+        self._tail = self._head
+
+        while current:
+            next_node = current.next
+            current.next = previous
+            previous = current
+            current = next_node
+
+        self._head = previous
+
+    def remove(self, index):
+        previous = None
+        current = self._head
+        current_index = 0
+
+        while current:
+            if index == current_index:
+                if not previous:
+                    self._head = current.next
+                else:
+                    previous.next = current.next
+                    if not current.next:
+                        self._tail = current
+                self._len -= 1
+
+            previous = current
+            current = current.next
+            current_index += 1
 
 
 __all__ = ["LinkedList"]
