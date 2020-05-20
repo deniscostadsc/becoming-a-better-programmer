@@ -54,7 +54,7 @@ def test_insert_item_on_empty_linked_list(linked_list):
     assert pytest.helpers.equal_items([6], linked_list)
 
 
-def test_raise_exception_when_index_is_out_of_range(linked_list):
+def test_try_to_insert_on_index_is_out_of_range(linked_list):
     with pytest.raises(IndexError) as e:
         linked_list.insert(1, 6)
 
@@ -119,7 +119,7 @@ def test_remove_tail_from_linked_list_and_then_append(linked_list):
     assert pytest.helpers.equal_items([6, 5], linked_list)
 
 
-def test_try_to_remove_out_of_index(linked_list):
+def test_try_to_remove_on_index_out_of_range(linked_list):
     with pytest.raises(IndexError) as e:
         linked_list.remove(1)
 
