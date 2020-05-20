@@ -76,6 +76,9 @@ class LinkedList:
         Time: O(n)
         Space: O(1)
         """
+        if index > self._len:
+            raise IndexError("linked-list index out of range")
+
         node = Node()
         node.value = value
 
@@ -100,8 +103,6 @@ class LinkedList:
             current = current.next
             position += 1
 
-        raise IndexError("linked-list index out of range")
-
     def reverse(self) -> None:
         """
         Time: O(n)
@@ -122,6 +123,13 @@ class LinkedList:
         self._head = previous
 
     def remove(self, index):
+        """
+        Time: O(n)
+        Space: O(1)
+        """
+        if index > self._len:
+            raise IndexError("linked-list index out of range")
+
         previous = None
         current = self._head
         current_index = 0

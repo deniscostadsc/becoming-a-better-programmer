@@ -117,3 +117,11 @@ def test_remove_tail_from_linked_list_and_then_append(linked_list):
     assert pytest.helpers.equal_items([6], linked_list)
     linked_list.append(5)
     assert pytest.helpers.equal_items([6, 5], linked_list)
+
+
+def test_try_to_remove_out_of_index(linked_list):
+    with pytest.raises(IndexError) as e:
+        linked_list.remove(1)
+
+    assert str(e.value) == "linked-list index out of range"
+    assert len(linked_list) == 0
