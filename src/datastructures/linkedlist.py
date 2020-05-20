@@ -122,7 +122,7 @@ class LinkedList:
 
         self._head = previous
 
-    def remove(self, index):
+    def remove(self, index: int) -> None:
         """
         Time: O(n)
         Space: O(1)
