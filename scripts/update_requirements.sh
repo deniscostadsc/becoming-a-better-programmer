@@ -3,7 +3,6 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.." || exit 1
 
-ls
 pip-compile \
     --upgrade \
     --build-isolation \
