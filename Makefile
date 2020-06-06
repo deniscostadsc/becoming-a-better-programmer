@@ -1,12 +1,12 @@
 PHONY: \
-	__build_test_image \
+	__build-test-image \
 	clean \
 	format-code \
 	lint \
 	test \
-	update-and-lock-requirements
+	update-requirements
 
-__build_test_image:
+__build-test-image:
 	docker build -f .docker/test.Dockerfile -t data-structure-test .
 
 clean:
@@ -15,7 +15,7 @@ clean:
 	find . -name '__pycache__' -exec rm -rf {} +
 	find . -name '*.pyc' -delete
 
-format-code: __build_test_image
+format-code: __build-test-image
 	docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
@@ -27,7 +27,7 @@ format-code: __build_test_image
 		data-structure-test \
 		black .
 
-lint: __build_test_image
+lint: __build-test-image
 	docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
@@ -49,18 +49,16 @@ lint: __build_test_image
 		data-structure-test \
 		mypy src
 
-test: __build_test_image
+test: __build-test-image
 	docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
 		data-structure-test \
-		./run_tests.sh
+		scripts/run_tests.sh
 
-update-and-lock-requirements: __build_test_image
-	rm requirements-lock.txt
-	cp requirements.txt requirements-lock.txt
+update-requirements: __build-test-image
 	docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
 		data-structure-test \
-		lock requirements-lock.txt
+		scripts/update_requirements.sh

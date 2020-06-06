@@ -1,9 +1,0 @@
-black==19.10b0
-coverage==5.1
-flake8==3.8.1
-isort==4.3.21
-lock-requirements==0.1.1
-mypy==0.770
-pytest==5.4.2
-pytest-cov==2.8.1
-pytest-helpers-namespace==2019.1.8
