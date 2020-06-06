@@ -1,0 +1,11 @@
+[run]
+include =
+  src/*
+
+[paths]
+source = src/
+
+[report]
+show_missing = True
+exclude_lines =
+    ^\s*raise NotImplementedError\b
