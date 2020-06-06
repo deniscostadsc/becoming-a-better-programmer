@@ -7,9 +7,10 @@ data-structures.
 
 ## Running test
 
-All development environment is based on [Docker](), although is possible to run
-it locally. With Docker installed, you alread have the following make tasks
-available:
+All development environment is based on [Docker](https://www.docker.com/),
+although is possible to run it locally. With
+[Docker installed](https://docs.docker.com/get-docker/), you alread have the
+following make tasks available:
 
 ```bash
 make lint  # run static code analysis, code formating check and etc.
