@@ -1,9 +1,9 @@
 from .heap import EmptyHeap, MaxHeap, MinHeap
 from .linkedlist import LinkedList
-from .tree import BinaryTree
+from .tree.bst import BinarySearchTree
 
 __all__ = [
-    "BinaryTree",
+    "BinarySearchTree",
     "EmptyHeap",
     "LinkedList",
     "MaxHeap",
