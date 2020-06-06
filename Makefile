@@ -12,6 +12,7 @@ __build-test-image:
 clean:
 	rm -rf .pytest_cache
 	rm -rf .mypy_cache
+	rm -rf .cache
 	find . -name '__pycache__' -exec rm -rf {} +
 	find . -name '*.pyc' -delete
 
