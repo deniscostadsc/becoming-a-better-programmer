@@ -9,6 +9,7 @@ class BinarySearchTreeNode:
 
 
 class BinarySearchTree:
+    # TODO: add traverse methods
     def __init__(self) -> None:
         self._root: Optional[BinarySearchTreeNode] = None
 

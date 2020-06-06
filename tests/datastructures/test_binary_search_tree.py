@@ -2,6 +2,8 @@ import pytest
 
 from datastructures import BinarySearchTree
 
+# TODO: stop access internal of tree and implements traverse methods
+
 
 @pytest.fixture
 def tree():
