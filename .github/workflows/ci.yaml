@@ -19,3 +19,9 @@ jobs:
         run: |
           make test
 
+      - name: send test coverage report
+        run: |
+          make send-coverage-report
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+

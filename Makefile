@@ -3,6 +3,7 @@ PHONY: \
 	clean \
 	format-code \
 	lint \
+	send-coverage-report \
 	test \
 	update-requirements
 
@@ -49,6 +50,14 @@ lint: __build-test-image
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
 		data-structure-test \
 		mypy src
+
+send-coverage-report: __build-test-image
+	docker run \
+		-v $(shell pwd):/code \
+		-u $$(stat -c "%u:%g" $(shell pwd)) \
+		-e CODECOV_TOKEN="$$CODECOV_TOKEN" \
+		data-structure-test \
+		codecov
 
 test: __build-test-image
 	docker run \
