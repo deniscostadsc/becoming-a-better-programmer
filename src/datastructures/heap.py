@@ -109,7 +109,7 @@ class Heap:
         Time: O(log n)
         Space: O(1)
 
-        This complexity is because of self._heapfy_up().
+        This time complexity is because of self._heapfy_up().
         """
         self._heap.append(value)
         self._heapfy_up()
@@ -129,7 +129,7 @@ class Heap:
         Time: O(log n)
         Space: O(1)
 
-        This complexity is because of self._heapfy_down().
+        This time complexity is because of self._heapfy_down().
         """
         if not len(self):
             raise EmptyHeap("you cannot pop on empty heap")
@@ -145,7 +145,19 @@ class Heap:
         return pop
 
 
+def min_comparator(a, b):
+    return a < b
+
+
+def max_comparator(a, b):
+    pass
+
+
 class MinHeap(Heap):
+    def __init__(self):
+        super().__init__()
+        self._parent_comparator = min_comparator
+
     def _heapfy_up(self) -> None:
         """
         Time: O(log n)
@@ -154,7 +166,9 @@ class MinHeap(Heap):
         index = len(self) - 1
         value = self._heap[index]
 
-        while self._has_parent(index) and self._parent(index) > value:
+        while self._has_parent(index) and self._parent_comparator(
+            value, self._parent(index)
+        ):
             self._swap(index, self._parent_index(index))
             index = self._parent_index(index)
             value = self._heap[index]

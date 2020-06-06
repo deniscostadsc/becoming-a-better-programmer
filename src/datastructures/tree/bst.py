@@ -1,5 +1,6 @@
 from typing import List, Optional
 
+
 class BinarySearchTreeNode:
     def __init__(self, value) -> None:
         self.value: int = value
@@ -16,7 +17,7 @@ class BinarySearchTree:
             self._root = new_node
             return
 
-        nodes: List[BinarySearchTreeNone] = [self._root]
+        nodes: List[BinarySearchTreeNode] = [self._root]
 
         while nodes:
             current: BinarySearchTreeNode = nodes.pop(0)
@@ -40,6 +41,8 @@ class BinarySearchTree:
     def insert_many(self, values):
         for value in values:
             self.insert(value)
+
+
 __all__ = [
-        "BinarySearchTree",
-        ]
+    "BinarySearchTree",
+]

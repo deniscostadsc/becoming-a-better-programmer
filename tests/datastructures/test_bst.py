@@ -26,7 +26,6 @@ def test_insert_nodes(tree):
     assert 11 == tree._root.left.left.value
 
 
-
 def test_add_values_list(tree):
     tree.insert_many([8, 10, 3, 21, 16, 4, 1, 17, 14, 2])
 
