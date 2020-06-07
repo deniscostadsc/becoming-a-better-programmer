@@ -2,7 +2,7 @@ black
 codecov
 coverage
 flake8
-isort
+isort[pyproject]
 mypy
 pytest
 pytest-cov
