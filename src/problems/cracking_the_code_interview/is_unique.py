@@ -10,9 +10,7 @@ if you cannot use additional data structures?
 def has_unique_char(s: str) -> bool:
     """
     Time: O(n)
-    Space: O(c)
-
-    "c" being the number of unique characters in the string
+    Space: O(n)
     """
     chars: Dict[str, int] = {}
 
