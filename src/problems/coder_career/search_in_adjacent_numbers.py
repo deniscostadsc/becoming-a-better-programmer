@@ -12,6 +12,8 @@ For example, if given the array {4, 5, 6, 5, 6, 7, 8, 9, 10, 9} and an element
 position 7.
 """
 
+# TODO: solver in a clever way
+
 
 def search_in_adjacent_numbers(numbers: List[int], search: int) -> int:
     """
