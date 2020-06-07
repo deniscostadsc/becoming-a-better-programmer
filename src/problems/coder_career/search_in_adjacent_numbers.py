@@ -1,6 +1,5 @@
 from typing import List
 
-
 """
 Given an array where two neighboring elements are adjacent (in absolute
 difference 1), can you write an algorithm to search an element in the array and
