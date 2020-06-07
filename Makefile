@@ -1,5 +1,5 @@
 PHONY: \
-	__build-test-image \
+	__build-ci-image \
 	clean \
 	format-code \
 	lint \
@@ -7,8 +7,8 @@ PHONY: \
 	test \
 	update-requirements
 
-__build-test-image:
-	@docker build -q -f .docker/test.Dockerfile -t data-structure-test .
+__build-ci-image:
+	@docker build -q -f .docker/ci.Dockerfile -t data-structure-ci .
 
 clean:
 	@rm -rf .pytest_cache
@@ -18,58 +18,58 @@ clean:
 	@find . -name '__pycache__' -exec rm -rf {} +
 	@find . -name '*.pyc' -delete
 
-format-code: __build-test-image
+format-code: __build-ci-image
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
+		data-structure-ci \
 		isort -rc .
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
+		data-structure-ci \
 		black .
 
-lint: __build-test-image
+lint: __build-ci-image
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
+		data-structure-ci \
 		isort -rc -c .
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
+		data-structure-ci \
 		black --check .
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
+		data-structure-ci \
 		flake8
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
+		data-structure-ci \
 		mypy src
 
-send-coverage-report: __build-test-image
+send-coverage-report: __build-ci-image
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
 		-e CODECOV_TOKEN="$$CODECOV_TOKEN" \
-		data-structure-test \
+		data-structure-ci \
 		codecov
 
-test: __build-test-image
+test: __build-ci-image
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
+		data-structure-ci \
 		scripts/run_tests.sh
 
-update-requirements: __build-test-image
+update-requirements: __build-ci-image
 	@docker run \
 		-v $(shell pwd):/code \
 		-u $$(stat -c "%u:%g" $(shell pwd)) \
-		data-structure-test \
+		data-structure-ci \
 		scripts/update_requirements.sh

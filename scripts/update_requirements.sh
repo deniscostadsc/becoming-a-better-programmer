@@ -8,4 +8,4 @@ pip-compile \
     --build-isolation \
     --generate-hashes \
     --cache-dir ./.cache \
-    --output-file requirements/test.lock requirements/test.txt
+    --output-file requirements/ci.lock requirements/ci.txt

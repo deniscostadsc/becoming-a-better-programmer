@@ -7,5 +7,5 @@ RUN pip install --no-cache-dir --upgrade pip pip-tools
 RUN mkdir /code
 WORKDIR /code
 
-COPY requirements/test.lock /code/
-RUN pip install -r test.lock
+COPY requirements/ci.lock /code/
+RUN pip install -r ci.lock
