@@ -6,6 +6,10 @@
 The ideia for this repository is to refresh, study and practice algorithms and
 data-structures.
 
+I'm doing so far is to implement some [data structures](src/datastructures/)
+and solve some [problems](src/problems/) that are heavily based on algorithms
+and data structures.
+
 ## Running test
 
 All development environment is based on [Docker](https://www.docker.com/),
