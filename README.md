@@ -3,7 +3,7 @@
 ![CI](https://github.com/deniscostadsc/becoming-a-better-programmer/workflows/CI/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/deniscostadsc/becoming-a-better-programmer/branch/master/graph/badge.svg)](https://codecov.io/gh/deniscostadsc/becoming-a-better-programmer)
 
-The ideia for this is to refresh, study and practice algorithms and
+The ideia for this repository is to refresh, study and practice algorithms and
 data-structures.
 
 ## Running test
