@@ -7,7 +7,7 @@ if you cannot use additional data structures?
 """
 
 
-def has_unique_char(s: str) -> bool:
+def is_unique(s: str) -> bool:
     """
     Time: O(n)
     Space: O(n)
@@ -23,7 +23,7 @@ def has_unique_char(s: str) -> bool:
     return True
 
 
-def has_unique_char_with_no_additional_datastructures(s: str) -> bool:
+def is_unique_with_no_additional_datastructures(s: str) -> bool:
     """
     Time: O(n log n)
     Space: O(1)
@@ -55,6 +55,6 @@ def has_unique_char_with_no_additional_datastructures(s: str) -> bool:
 
 
 __all__ = [
-    "has_unique_char",
-    "has_unique_char_with_no_additional_datastructures",
+    "is_unique",
+    "is_unique_with_no_additional_datastructures",
 ]
