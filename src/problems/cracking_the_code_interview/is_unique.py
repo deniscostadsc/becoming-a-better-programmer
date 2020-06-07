@@ -23,7 +23,7 @@ def is_unique(s: str) -> bool:
     return True
 
 
-def is_unique_with_no_additional_datastructures(s: str) -> bool:
+def is_unique_with_no_extra_space(s: str) -> bool:
     """
     Time: O(n log n)
     Space: O(1)
@@ -56,5 +56,5 @@ def is_unique_with_no_additional_datastructures(s: str) -> bool:
 
 __all__ = [
     "is_unique",
-    "is_unique_with_no_additional_datastructures",
+    "is_unique_with_no_extra_space",
 ]
