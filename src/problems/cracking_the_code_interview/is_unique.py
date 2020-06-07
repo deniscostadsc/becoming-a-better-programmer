@@ -39,7 +39,7 @@ def has_unique_char_with_no_additional_datastructures(s: str) -> bool:
         end = len(s) - 1
 
         while begin < end:
-            middle = begin + ((end - begin) // 2)
+            middle = begin + (end - begin) // 2
             if s[middle] == char:
                 if middle >= 1 and s[middle - 1] == char:
                     return False
