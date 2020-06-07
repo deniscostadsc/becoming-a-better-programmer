@@ -1,6 +1,15 @@
 from typing import List
 
 
+"""
+All numbers in an array with length n+1 are in range from 1 to n, so there is
+at least one duplication in the array. How to find any a duplication? Please
+don't modify the input array.
+
+https://codercareer.blogspot.com/2016/04/no-59-duplications-in-arrays.html
+"""
+
+
 def duplications_in_arrays(numbers: List[int]) -> List[int]:
     """
     Time: O(n)
