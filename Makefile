@@ -34,7 +34,11 @@ lint: __build-ci-image
 	$(DOCKER_RUN) mypy src
 
 send-coverage-report: __build-ci-image
-	$(DOCKER_RUN) codecov
+	@docker run \
+		$(DOCKER_RUN_ARGS) \
+		-e CODECOV_TOKEN="$$CODECOV_TOKEN" \
+		$(CI_DOCKER_IMAGE_NAME) \
+		codecov
 
 test: __build-ci-image
 	$(DOCKER_RUN) scripts/run_tests.sh
