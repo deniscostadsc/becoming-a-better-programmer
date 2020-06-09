@@ -9,9 +9,9 @@ first occurrence.
 For example, if given the array {4, 5, 6, 5, 6, 7, 8, 9, 10, 9} and an element
 9, the element appears twice in the array, and the first occurrence is at
 position 7.
-"""
 
-# TODO: solver in a clever way
+https://codercareer.blogspot.com/2015/09/no-58-search-in-adjacent-numbers.html
+"""
 
 
 def search_in_adjacent_numbers(numbers: List[int], search: int) -> int:
@@ -19,8 +19,12 @@ def search_in_adjacent_numbers(numbers: List[int], search: int) -> int:
     Time: O(n)
     Space: O(1)
     """
-    for index, number in enumerate(numbers):
-        if search == number:
+    index = 0
+
+    while index < len(numbers):
+        if numbers[index] == search:
             return index
+        else:
+            index += search - numbers[index]
 
     raise ValueError(f"{search} is not in list")
