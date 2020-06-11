@@ -26,6 +26,6 @@ def search_in_adjacent_numbers(numbers: List[int], search: int) -> int:
         if numbers[index] == search:
             return index
         else:
-            index += search - numbers[index]
+            index += abs(search - numbers[index])
 
     raise ValueError(f"{search} is not in list")

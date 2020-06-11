@@ -7,6 +7,7 @@ from problems.coder_career.search_in_adjacent_numbers import (
 
 def test_search_in_adjacent_numbers():
     assert search_in_adjacent_numbers([1, 2, 1, 2, 3, 4, 3, 4, 5], 3) == 4
+    assert search_in_adjacent_numbers([5, 4, 3, 2, 1], 1) == 4
     assert search_in_adjacent_numbers([1, 2, 1], 1) == 0
     assert search_in_adjacent_numbers([1], 1) == 0
     assert search_in_adjacent_numbers([4, 5, 6, 5, 6, 7, 8, 9, 10, 9], 9) == 7
