@@ -10,8 +10,8 @@ Input: "1123". You need to general all valid alphabet codes from this string.
 
 Output:
 
-aabc  //a = 1, a = 1, b = 2, c = 3
-kbc  // since k is 11, b = 2, c= 3
+aabc  // a = 1, a = 1, b = 2, c = 3
+kbc  // k = 11, b = 2, c= 3
 alc  // a = 1, l = 12, c = 3
 aaw  // a= 1, a =1, w= 23
 kw  // k = 11, w = 23
@@ -52,32 +52,44 @@ def _all_possible_letters(
     str_number: str,
     index: int,
     result: List[str],
-    where_to_update: Optional[List[int]] = None,
+    parent_prefix: Optional[str] = None,
 ) -> None:
     if index == len(str_number):
         return
 
-    result.append(indexed_letter[int(str_number[index])])
+    if parent_prefix is None:
+        parent_prefix = ""
 
-    _all_possible_letters(str_number, index + 1, result, where_to_update)
-
+    first_letter = indexed_letter[int(str_number[index])]
+    second_letter = None
     if index < len(str_number) - 1:
-        result.append(indexed_letter[int(str_number[index : index + 2])])
-        _all_possible_letters(str_number, index + 2, result)
+        second_letter = indexed_letter[int(str_number[index : index + 2])]
+
+    try:
+        letter_set_index = result.index(parent_prefix)
+        result[letter_set_index] += first_letter
+        if second_letter:
+            result.append(parent_prefix + second_letter)
+    except ValueError:
+        result.append(first_letter)
+        if second_letter:
+            result.append(second_letter)
+
+    _all_possible_letters(
+        str_number, index + 1, result, parent_prefix + first_letter
+    )
+    if second_letter:
+        _all_possible_letters(
+            str_number, index + 2, result, parent_prefix + second_letter
+        )
 
 
 def all_possible_letters(number: int) -> List[str]:
     result: List[str] = []
     _all_possible_letters(str(number), 0, result)
+    result.sort()
+
     return result
-
-
-if __name__ == "__main__":
-    print(all_possible_letters(1))
-    print(all_possible_letters(2))
-    print(all_possible_letters(11))
-    print(all_possible_letters(112))
-    print(all_possible_letters(1123))
 
 
 __all__ = [
