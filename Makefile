@@ -32,6 +32,7 @@ lint: __build-ci-image
 	$(DOCKER_RUN) black --check .
 	$(DOCKER_RUN) flake8
 	$(DOCKER_RUN) mypy src
+	$(DOCKER_RUN) find . -name '*.sh' | xargs shellcheck
 
 send-coverage-report: __build-ci-image
 	@docker run \

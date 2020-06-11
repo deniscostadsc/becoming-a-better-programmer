@@ -2,6 +2,8 @@ FROM python:3.8.3
 
 ENV PYTHONUNBUFFERED 1
 
+RUN apt update && apt install shellcheck
+
 RUN pip install --no-cache-dir --upgrade pip pip-tools
 
 RUN mkdir /code
