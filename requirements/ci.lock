@@ -141,10 +141,14 @@ pytest-helpers-namespace==2019.1.8 \
     --hash=sha256:4eff23a19f92410c0166f6dffbfa8901d3e14a80e97d70cd08428b6d597771ce \
     --hash=sha256:e2c5475bc6d50e81a30f5644b1612ada643c81bfc8ca51efc1d08ebac299fb31 \
     # via -r requirements/ci.txt
+pytest-parallel==0.1.0 \
+    --hash=sha256:10693161e350b59466ca331bad964073555cda114cc0499bd826deeceee512ed \
+    --hash=sha256:4663a8fb805ac98b51e51de84d35ffd9717017fb71ed270440dc94b862466c20 \
+    # via -r requirements/ci.txt
 pytest==5.4.3 \
     --hash=sha256:5c0db86b698e8f170ba4582a492248919255fcd4c79b1ee64ace34301fb589a1 \
     --hash=sha256:7979331bfcba207414f5e1263b5a0f8f521d0f457318836a7355531ed1a4c7d8 \
-    # via -r requirements/ci.txt, pytest-cov, pytest-helpers-namespace
+    # via -r requirements/ci.txt, pytest-cov, pytest-helpers-namespace, pytest-parallel
 regex==2020.6.8 \
     --hash=sha256:08997a37b221a3e27d68ffb601e45abfb0093d39ee770e4257bd2f5115e8cb0a \
     --hash=sha256:112e34adf95e45158c597feea65d06a8124898bdeac975c9087fe71b572bd938 \
@@ -176,6 +180,10 @@ six==1.15.0 \
     --hash=sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259 \
     --hash=sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced \
     # via packaging
+tblib==1.6.0 \
+    --hash=sha256:229bee3754cb5d98b4837dd5c4405e80cfab57cb9f93220410ad367f8b352344 \
+    --hash=sha256:e222f44485d45ed13fada73b57775e2ff9bd8af62160120bbb6679f5ad80315b \
+    # via pytest-parallel
 toml==0.10.1 \
     --hash=sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f \
     --hash=sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88 \

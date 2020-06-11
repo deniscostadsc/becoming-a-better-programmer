@@ -5,4 +5,4 @@ cd "$(dirname "$0")/.." || exit 1
 
 export PYTHONPATH=./src
 
-pytest --cov=src
+pytest --workers auto --cov=src
