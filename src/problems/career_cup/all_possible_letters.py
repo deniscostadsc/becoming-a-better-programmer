@@ -50,8 +50,8 @@ indexed_letter = {
 
 def _all_possible_letters(
     str_number: str,
-    index: int,
     result: List[str],
+    index: int = 0,
     parent_prefix: Optional[str] = None,
 ) -> None:
     if index == len(str_number):
@@ -76,17 +76,17 @@ def _all_possible_letters(
             result.append(second_letter)
 
     _all_possible_letters(
-        str_number, index + 1, result, parent_prefix + first_letter
+        str_number, result, index + 1, parent_prefix + first_letter
     )
     if second_letter:
         _all_possible_letters(
-            str_number, index + 2, result, parent_prefix + second_letter
+            str_number, result, index + 2, parent_prefix + second_letter
         )
 
 
 def all_possible_letters(number: int) -> List[str]:
     result: List[str] = []
-    _all_possible_letters(str(number), 0, result)
+    _all_possible_letters(str(number), result)
     result.sort()
 
     return result
