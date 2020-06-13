@@ -4,6 +4,8 @@ from typing import List
 """
 Define a stack, in which we can get its minimum number with a function min. In
 this stack, the time complexity of min(), push() and pop() are all O(1).
+
+https://codercareer.blogspot.com/2011/09/no-02-stack-with-function-min.html
 """
 
 
