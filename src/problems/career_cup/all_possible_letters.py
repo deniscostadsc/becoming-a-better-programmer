@@ -54,6 +54,10 @@ def _all_possible_letters(
     index: int = 0,
     parent_prefix: Optional[str] = None,
 ) -> None:
+    """
+    Time: O(2^n)
+    Space: O(1)
+    """
     if index == len(str_number):
         return
 
