@@ -19,6 +19,7 @@ clean:
 	@rm -rf .mypy_cache
 	@rm -rf .cache
 	@rm -rf .coverage
+	@rm -rf .coverage.*
 	@rm -rf coverage.xml
 	@find . -name '__pycache__' -exec rm -rf {} +
 	@find . -name '*.pyc' -delete
