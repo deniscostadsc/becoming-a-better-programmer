@@ -9,10 +9,6 @@ def min_comparator(a, b):
     return a < b
 
 
-def max_comparator(a, b):
-    return a > b
-
-
 class MinHeap:
     def __init__(self) -> None:
         self._heap: List[int] = []
@@ -193,6 +189,10 @@ class MinHeap:
             self._heapfy_down()
 
         return pop
+
+
+def max_comparator(a, b):
+    return a > b
 
 
 class MaxHeap(MinHeap):
