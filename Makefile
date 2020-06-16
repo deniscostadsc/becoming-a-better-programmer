@@ -15,14 +15,14 @@ __build-ci-image:
 	@docker build -q -f .docker/ci.Dockerfile -t $(CI_DOCKER_IMAGE_NAME) .
 
 clean:
-	@rm -rf .pytest_cache
-	@rm -rf .mypy_cache
+	@find . -name '*.pyc' -delete
+	@find . -name '__pycache__' -exec rm -rf {} +
 	@rm -rf .cache
 	@rm -rf .coverage
 	@rm -rf .coverage.*
+	@rm -rf .mypy_cache
+	@rm -rf .pytest_cache
 	@rm -rf coverage.xml
-	@find . -name '__pycache__' -exec rm -rf {} +
-	@find . -name '*.pyc' -delete
 
 format-code: __build-ci-image
 	$(DOCKER_RUN) isort -rc .
