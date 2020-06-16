@@ -2,7 +2,6 @@
 branch = True
 omit =
   **/__init__.py
-  **/k_lists_of_sorted_int.py
 
 [paths]
 source = src/
