@@ -15,6 +15,8 @@ kbc  // k = 11, b = 2, c= 3
 alc  // a = 1, l = 12, c = 3
 aaw  // a= 1, a =1, w= 23
 kw  // k = 11, w = 23
+
+https://www.careercup.com/question?id=19300678
 """
 
 
