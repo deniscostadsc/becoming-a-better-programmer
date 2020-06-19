@@ -59,6 +59,8 @@ def _all_possible_letters(
     """
     Time: O(2^n)
     Space: O(1)
+
+    TODO: it's possible o write a O(n) solution with dynamic programming.
     """
     if index == len(str_number):
         return
