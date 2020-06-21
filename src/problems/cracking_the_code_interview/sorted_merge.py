@@ -21,17 +21,21 @@ def sorted_merge(
         if index_a < 0:
             iter_a[i] = iter_b[index_b]
             index_b -= 1
+
             continue
+
         if index_b < 0:
             iter_a[i] = iter_a[index_a]
             index_a -= 1
+
             continue
 
-        if iter_a[index_a] > iter_b[index_b]:
-            iter_a[i] = iter_a[index_a]
-            index_a -= 1
-        else:
-            iter_a[i] = iter_b[index_b]
-            index_b -= 1
+        if iter_a[index_a] is not None and iter_b[index_b] is not None:
+            if iter_a[index_a] > iter_b[index_b]:
+                iter_a[i] = iter_a[index_a]
+                index_a -= 1
+            else:
+                iter_a[i] = iter_b[index_b]
+                index_b -= 1
 
     return iter_a
