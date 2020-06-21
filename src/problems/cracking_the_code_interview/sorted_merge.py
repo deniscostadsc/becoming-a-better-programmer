@@ -1,20 +1,22 @@
-from typing import List, Optional
+from typing import List
 
 
 """
 You are given two sorted arrays, A and B, where A has a large enough buffer at
 the end to hold B. Write a method to merge B into A in sorted order.
+
+PS: Initially I used None on the buffer, but I'm trying to use mypy on this
+project, and I don't know how to handle Optional object in a good way yet. So
+I've decided to use -1 to mark the buffer part of first list.
 """
 
 
-def sorted_merge(
-    iter_a: List[Optional[int]], iter_b: List[int]
-) -> List[Optional[int]]:
+def sorted_merge(iter_a: List[int], iter_b: List[int]) -> List[int]:
     """
     Time: O(n)
     Space: O(1)
     """
-    index_a = iter_a.index(None) - 1
+    index_a = iter_a.index(-1) - 1
     index_b = len(iter_b) - 1
 
     for i in range(len(iter_a) - 1, -1, -1):
@@ -30,12 +32,11 @@ def sorted_merge(
 
             continue
 
-        if iter_a[index_a] is not None and iter_b[index_b] is not None:
-            if iter_a[index_a] > iter_b[index_b]:
-                iter_a[i] = iter_a[index_a]
-                index_a -= 1
-            else:
-                iter_a[i] = iter_b[index_b]
-                index_b -= 1
+        if iter_a[index_a] > iter_b[index_b]:
+            iter_a[i] = iter_a[index_a]
+            index_a -= 1
+        else:
+            iter_a[i] = iter_b[index_b]
+            index_b -= 1
 
     return iter_a
