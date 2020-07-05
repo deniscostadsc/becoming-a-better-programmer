@@ -29,7 +29,8 @@ def sorted_merge(
 
         if (
             isinstance(iter_a[index_a], int)
-            # line bellow is ignored because of https://github.com/python/mypy/issues/7339
+            # line bellow is ignored because of
+            # https://github.com/python/mypy/issues/7339
             and iter_a[index_a] > iter_b[index_b]  # type: ignore
         ):
             iter_a[i] = iter_a[index_a]
