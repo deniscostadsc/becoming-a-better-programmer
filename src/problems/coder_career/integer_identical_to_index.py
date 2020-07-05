@@ -27,7 +27,7 @@ def identical_to_index(numbers: List[int]) -> int:
         if numbers[middle] == middle:
             result = middle
             break
-        elif numbers[middle] >= middle:
+        elif numbers[middle] > middle:
             end = middle - 1
         else:
             begin = middle + 1
