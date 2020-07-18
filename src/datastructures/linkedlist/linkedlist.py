@@ -1,43 +1,8 @@
-from typing import Iterator, Optional
-
-# TODO:
-# add SortedLikedList
-# add DoublyLinkedList
+from .base import BaseLinkedList
+from .node import Node
 
 
-class Node:
-    def __init__(self) -> None:
-        self.value: Optional[int] = None
-        self.next = None
-
-
-class LinkedList:
-    def __init__(self):
-        self._len = 0
-        self._head = None
-        self._tail = None
-
-    def __len__(self) -> int:
-        """
-        Time: O(1)
-        Space: O(1)
-
-        This usually takes O(n) for time complexity, but I'm caching the
-        linked-list size.
-        """
-        return self._len
-
-    def __iter__(self) -> Iterator[int]:
-        """
-        Time: O(n)
-        Space: O(1)
-        """
-        current = self._head
-
-        while current:
-            yield current.value
-            current = current.next
-
+class LinkedList(BaseLinkedList):
     def prepend(self, value: int) -> None:
         """
         Time: O(1)
