@@ -7,7 +7,7 @@ PHONY: \
 	test \
 	update-requirements
 
-DOCKER_RUN_ARGS = -v $(shell pwd):/code -u $$(stat -c "%u:%g" $(shell pwd))
+DOCKER_RUN_ARGS = -v $(shell pwd):/code -u "$$(id -u):$$(id -g)"
 CI_DOCKER_IMAGE_NAME = data-structure-ci
 DOCKER_RUN = @docker run $(DOCKER_RUN_ARGS) $(CI_DOCKER_IMAGE_NAME)
 
